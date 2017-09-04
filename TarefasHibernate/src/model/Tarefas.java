@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,12 +25,26 @@ public class Tarefas {
 	private boolean finalizado;
 
 	/*
-	 * Desta forma irá criar uma tabela adicional, é preciso modificar.. para o dado
-	 * ser adicionado na tabela Tarefas.
+	 * Se não for utilizado o @JoinColumn será criado uma outra tabela
+	 * para adicionar os dados da relação.
+	 * 
+	 * A relação utilizando conceito Unidirecional
+	 *  - @OneToMany
+	 *  - @JoinColumn
+	 * Sem adicionar campos na outra entidade, funcionará.
+	 * Sendo que o 'nome' para o campo da JoinColumn, será a
+	 * ForeignKey da tabela d entidade da lista.
+	 * 
+	 * A Relação utilizando o conceito Bidirecional
+	 *  - @OneToMany(mappedBy = '')
+	 *  e adicionar os campos na outra entidade.
+	 * 
 	 */
 
-	// @OneToMany
-	// private List<fake> inteiros;
+	@OneToMany
+	@JoinColumn(name = "tarefa_id")
+	// @OneToMany(mappedBy = "tarefa")
+	private List<fake> fakes;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_finalizado", nullable = true)
