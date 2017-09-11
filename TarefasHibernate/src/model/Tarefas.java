@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -18,7 +19,7 @@ import javax.persistence.TemporalType;
 public class Tarefas {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	private String descricao;
@@ -41,14 +42,15 @@ public class Tarefas {
 	 * 
 	 */
 
-	@OneToMany
-	@JoinColumn(name = "tarefa_id")
+	// @OneToMany
+	// @JoinColumn(name = "tarefa_id")
 	// @OneToMany(mappedBy = "tarefa")
-	private List<fake> fakes;
+	//private List<fake> fakes;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_finalizado", nullable = true)
-	private Calendar dataFinalizacao;
+	// @Temporal(TemporalType.DATE)
+	// @Column(name = "data_finalizado", nullable = true)
+	// private Calendar dataFinalizacao;
+	private String dataFinalizacao;
 
 	public Tarefas() {
 
@@ -78,11 +80,11 @@ public class Tarefas {
 		this.finalizado = finalizado;
 	}
 
-	public Calendar getDataFinalizacao() {
+	public String getDataFinalizacao() {
 		return dataFinalizacao;
 	}
 
-	public void setDataFinalizacao(Calendar dataFinalizacao) {
+	public void setDataFinalizacao(String dataFinalizacao) {
 		this.dataFinalizacao = dataFinalizacao;
 	}
 
