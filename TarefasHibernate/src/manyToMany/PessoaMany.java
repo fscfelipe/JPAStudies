@@ -9,7 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Pessoa {
+public class PessoaMany {
 	
 	@Id
 	private Long id;

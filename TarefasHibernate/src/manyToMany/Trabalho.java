@@ -17,5 +17,5 @@ public class Trabalho {
 	private String nome;
 	
 	@ManyToMany(mappedBy = "trabalhos")
-	private List<Pessoa> funcionarios;
+	private List<PessoaMany> funcionarios;
 }
