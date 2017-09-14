@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import model.Tarefas;
 
-public class ConsultasEntidade {
+public class ConsultasEntidadeJPQL {
 
 	public static void main(String[] args) {
 		EntityManagerFactory factory =  Persistence.createEntityManagerFactory("tarefas");
